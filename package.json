@@ -48,6 +48,7 @@
     "ember-cli-babel": "^5.1.6",
     "ember-cli-deploy-plugin": "^0.2.6",
     "git-rev-sync": "^1.6.0",
+    "q": "^1.4.1",
     "request": "^2.74.0",
     "request-promise": "^4.1.1"
   },
