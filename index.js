@@ -32,8 +32,6 @@ module.exports = {
           }
         })
         .then(() => {
-          // console.log(context);
-          // console.log(context.project.root, context.distDir, context.distFiles);
           let mapFiles = context.distFiles.filter((file) => file.endsWith('.map'))
 
           if(mapFiles.length) {
@@ -88,10 +86,9 @@ module.exports = {
           }
         })
         .then(() => {
-          this.log('Successfully sent deployment');
+          this.log('Raygun updated successfully');
         }, (err) => {
           this.log('Error setting deployment' + err.message, {color: 'red'});
-          throw err;
         });
       }
     });
