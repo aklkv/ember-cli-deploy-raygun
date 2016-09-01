@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-deploy-raygun",
   "version": "1.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Ember-cli-deploy plugin to upload source maps and submit deployment information to Raygun",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -11,11 +11,11 @@
     "start": "ember server",
     "test": "ember try:each"
   },
-  "repository": "",
+  "repository": "https://github.com/aklkv/ember-cli-deploy-raygun.git",
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Alexey Kulakov <uni_que@me.com>",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
