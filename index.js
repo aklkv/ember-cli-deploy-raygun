@@ -19,7 +19,7 @@ module.exports = {
       },
 
       didDeploy: function(context) {
-        this.log('Creating Raygun Deployment')
+        this.log('Creating Raygun Deployment');
         return rp({
           method: 'POST',
           url: 'https://app.raygun.io/deployments?authToken=' + this.readConfig('token'),
@@ -29,24 +29,25 @@ module.exports = {
             version: `${context.project.pkg.version}+${git.long(context.project.root).substring(0, 8)}`,
             scmIdentifier: git.long(context.project.root),
             scmType: this.readConfig('scmType'),
-          }
+          },
         })
         .then(() => {
           let mapFiles = context.distFiles.filter((file) => file.endsWith('.map'))
 
-          if(mapFiles.length) {
+          if (mapFiles.length) {
             let prefix = this.readConfig('prefix');
             let appId = this.readConfig('appId');
 
             if (!prefix) {
-              throw new Error('You must provide prefix config when uploading sourcemaps to Raygun');
+              this.log('You must provide prefix config to upload sourcemaps to Raygun - Skipping stage', { color: 'red' });
+              return;
             }
 
             if (!appId) {
-              throw new Error('You must provide appId config when updloading sourcemaps to Raygun')
+              this.log('You must provide appId config to updload sourcemaps to Raygun - Skipping stage', { color: 'red' });
             }
 
-            this.log('Uploading sourcemaps to Raygun')
+            this.log('Uploading sourcemaps to Raygun');
 
             let promises = mapFiles.map((file) => {
               // match the sourcemap with the distfile
@@ -65,10 +66,10 @@ module.exports = {
                   } else if(distFile.endsWith('.js')) {
                     return file.slice(0, -4) === distFile.slice(0, -3);
                   }
-                })
+                });
 
               if(!matchingDistFile) {
-                this.warn(`No matching dist file for ${file}`);
+                this.log(`No matching dist file for ${file}`, { color: 'red' });
                 return Q();
               }
 
