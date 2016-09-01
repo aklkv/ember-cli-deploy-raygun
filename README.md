@@ -1,26 +1,45 @@
 # Ember-cli-deploy-raygun
 
-This README outlines the details of collaborating on this Ember addon.
+Ember-cli-deploy plugin to upload source maps and submit deployment information to [Raygun](http://raygun.com).
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+`ember install ember-cli-deploy-raygun`
 
-## Running
+## Configuration
 
-* `ember serve`
-* Visit your app at http://localhost:4200.
+```javascript
+// config/deploy.js
 
-## Running Tests
+var ENV = {
+  …
+  raygun: {
+    key: '', //  Raygun apiKey
+    token: '', // Raygun External Access Token
+    prefix: '', // optional url prefix for (used for sourcemaps only)
+    appId: '', // optional application id (used for sourcemaps only)
+  },
+  ...
+};
 
-* `npm test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+```
 
-## Building
+### Where to find stuff:
 
-* `ember build`
+* **API Key** can be found on application settings page.
+* [**Token**](https://raygun.com/docs/workflow/external-access-token)
+* **Prefix** is url pointing to where your files are stored (e.g `https://s3-eu-west-1.amazonaws.com/<bucketName>/`).
+* **Application ID** is the last portion of Ragun dashboard url (e.g `https://app.raygun.com/dashboard/<appId>`).
 
-For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
+## Sourcemaps
+
+In order for sourcemaps to work enable sourcemaps generation in `ember-cli-build.js` as follows:
+
+```javascript
+// ./ember-cli-build.js
+
+sourcemaps: {
+      enabled: true
+    }
+
+```
