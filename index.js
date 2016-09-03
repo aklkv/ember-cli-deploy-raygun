@@ -15,7 +15,7 @@ module.exports = {
       name: options.name,
       requiredConfig: ['key', 'token'],
       defaultConfig: {
-        scmType: 'Github',
+        scmType: 'Github'
       },
 
       didDeploy(context) {
@@ -33,8 +33,8 @@ module.exports = {
                 emailAddress: commit.author.email,
                 comment: commit.notes,
                 scmIdentifier: commit.hash,
-                scmType: this.readConfig('scmType'),
-              },
+                scmType: this.readConfig('scmType')
+              }
             })
             .then(() => {
               let mapFiles = context.distFiles ? context.distFiles.filter((file) => file.endsWith('.map')) : [];
@@ -89,7 +89,7 @@ module.exports = {
                     url: `https://app.raygun.io/upload/jssymbols/${this.readConfig('appId')}?authToken=${this.readConfig('token')}`,
                     formData: {
                       url: this.readConfig('prefix') + file,
-                      file: fs.createReadStream(path.join(context.project.root, context.distDir, file)),
+                      file: fs.createReadStream(path.join(context.project.root, context.distDir, file))
                     }
                   });
                 })
