@@ -46,7 +46,7 @@
   ],
   "dependencies": {
     "ember-cli-babel": "^5.1.6",
-    "ember-cli-deploy-plugin": "^0.2.6",
+    "ember-cli-deploy-plugin": "^0.2.7",
     "git-last-commit": "^0.2.0",
     "q": "^1.4.1",
     "request": "^2.74.0",
