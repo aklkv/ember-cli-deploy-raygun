@@ -50,7 +50,7 @@
     "git-last-commit": "^0.2.0",
     "q": "^1.4.1",
     "request": "^2.75.0",
-    "request-promise": "^4.1.1"
+    "request-promise": "^4.2.0"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
