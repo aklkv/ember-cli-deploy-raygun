@@ -1,7 +1,6 @@
 /* eslint-env node */
 'use strict';
 const BasePlugin = require('ember-cli-deploy-plugin');
-const request = require('request');
 const rp = require('request-promise');
 const git = require('git-last-commit');
 const Q = require('q');
@@ -59,8 +58,6 @@ module.exports = {
                 this.log('Uploading sourcemaps to Raygun');
 
                 let promises = mapFiles.map((file) => {
-                  // match the sourcemap with the distfile
-                  let mapFileRoot = file.split('-').slice(0, -1);
 
                   let matchingDistFile = context.distFiles
                     .filter((distFile) => !distFile.endsWith('.map'))
