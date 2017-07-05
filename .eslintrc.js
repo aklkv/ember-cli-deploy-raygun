@@ -9,5 +9,7 @@ module.exports = {
     browser: true
   },
   rules: {
+    "complexity": 2,
+    "max-statements": 2
   }
 };
