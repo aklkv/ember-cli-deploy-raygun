@@ -1,4 +1,4 @@
-/* jshint node: true */
+/* eslint-env node */
 'use strict';
 const BasePlugin = require('ember-cli-deploy-plugin');
 const request = require('request');
