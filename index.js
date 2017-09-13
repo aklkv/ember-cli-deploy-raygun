@@ -1,7 +1,6 @@
 /* eslint-env node */
 'use strict';
 const BasePlugin = require('ember-cli-deploy-plugin');
-const request = require('request');
 const rp = require('request-promise');
 const git = require('git-last-commit');
 const Q = require('q');
