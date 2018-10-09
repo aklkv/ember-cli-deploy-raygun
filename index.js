@@ -1,4 +1,5 @@
 /* eslint-env node */
+/* eslint-disable ember/avoid-leaking-state-in-ember-objects */
 'use strict';
 const BasePlugin = require('ember-cli-deploy-plugin');
 const rp = require('request-promise');
@@ -9,6 +10,10 @@ const fs = require('fs');
 
 module.exports = {
   name: 'ember-cli-deploy-raygun',
+  init() {
+    this._super(...arguments);
+
+  },
   createDeployPlugin(options) {
     let DeployPlugin = BasePlugin.extend({
       name: options.name,
