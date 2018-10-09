@@ -47,8 +47,6 @@ jobs:
 
 before_install:
   - npm config set spin false
-  - npm install -g npm@5
-  - npm --version
 
 script:
   - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
