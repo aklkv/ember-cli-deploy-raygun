@@ -46,6 +46,7 @@ jobs:
     - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
 
     - stage: NPM release
+    - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
       node_js: "6"
       deploy:
         provider: npm
