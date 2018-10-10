@@ -45,6 +45,17 @@ jobs:
     - env: EMBER_TRY_SCENARIO=ember-canary
     - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
 
+    - stage: NPM release
+      node_js: "6"
+      deploy:
+        provider: npm
+        email: uni_que@me.com
+        api_key:
+          secure: GLADj68+i4cWXZ9zOjBeB3F7g/7CcvS0wysxv1Ag3MWXtq7MzCVTE8oFqPxqoVLQ414yWP1vCJrz+4ndiKM47RJfa6JifJIp/6iglfuHe+Y2ztdbLQ4J3swPF7IcRn4GVDblq1mgsA7vruKiwXzAB4tzjOnXmwwlFgQgnlOJ9rk=
+        on:
+          tags: true
+          repo: aklkv/ember-cli-deploy-raygun
+
 before_install:
   - npm config set spin false
 
