@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-deploy-raygun",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Ember-cli-deploy plugin to upload source maps and submit deployment information to Raygun",
   "keywords": [
     "ember-addon",
